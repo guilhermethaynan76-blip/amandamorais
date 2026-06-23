@@ -4,9 +4,9 @@ import { WhatsAppButton } from '../WhatsAppButton';
 
 export const Hero = () => {
   return (
-    <section className="relative md:min-h-0 min-h-screen pt-24 md:pt-4 pb-16 md:pb-8 flex items-center bg-fundo overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 md:-mt-32 lg:-mt-40">
+    <section className="relative min-h-screen flex items-center bg-fundo overflow-hidden" style={{ paddingTop: 80, paddingBottom: 60 }}>
+      <div className="container mx-auto px-4 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           
           {/* Column Text (Left on Desktop) */}
           <div className="w-full md:w-[55%] flex flex-col items-center md:items-start gap-6 md:gap-6 z-10 order-1">
@@ -14,7 +14,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-1 md:-mt-16 lg:-mt-24"
+              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-1"
             >
               Cansada sem explicação, com exames normais e sem respostas?
             </motion.h1>
