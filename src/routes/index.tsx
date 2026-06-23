@@ -81,6 +81,8 @@ function Page() {
       <Stats />
       <Brands />
       <Services />
+      <Portfolio />
+      <Feedbacks />
       <Quiz />
       <FinalCTA />
       <FAQ />
@@ -730,7 +732,219 @@ function quizResult(score: number) {
   };
 }
 
+/* ------------------------ PORTFOLIO ------------------------ */
+const PORTFOLIO_ITEMS = [
+  { brand: "@belezanatural", desc: "Publi no feed • Reels • Stories" },
+  { brand: "@modafemme", desc: "Reels • Stories" },
+  { brand: "@cafedaamanda", desc: "Publi no feed • Stories" },
+  { brand: "@fitlifebr", desc: "Reels • Carrossel" },
+  { brand: "@maelinda", desc: "Publi no feed • Reels" },
+  { brand: "@skinglow", desc: "Stories • Reels" },
+];
+
+function Portfolio() {
+  return (
+    <section id="trabalhos" className="bg-[#FDF0F4] py-20 lg:py-28 px-5">
+      <div className="max-w-6xl mx-auto">
+        <motion.div {...fadeUp} className="text-center mb-12">
+          <h2 className="font-display text-[clamp(2rem,3.4vw,2.8rem)] text-[var(--dark)] leading-tight">
+            Marcas que já <span className="italic text-[var(--rosa)]">brilharam aqui</span>
+          </h2>
+          <p className="mt-3 text-[#A03055] font-sans text-[15px]">
+            Conteúdo real, resultado real.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PORTFOLIO_ITEMS.map((item, i) => (
+            <motion.div
+              key={item.brand}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ y: -4 }}
+              className="bg-white rounded-[16px] overflow-hidden shadow-[0_8px_24px_-8px_rgba(232,86,122,0.25)] hover:shadow-[0_14px_32px_-8px_rgba(232,86,122,0.35)] transition-shadow"
+            >
+              <div
+                className="h-[200px] w-full flex flex-col items-center justify-center gap-2"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #FDE0E8 0%, #F8C8D6 100%)",
+                }}
+              >
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#E8567A" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="9" cy="9" r="2" />
+                  <path d="m21 15-5-5L5 21" />
+                </svg>
+                <span className="font-title text-[12px] text-[#A07585]">[ foto do trabalho ]</span>
+              </div>
+              <div className="p-4">
+                <div className="font-title text-[var(--rosa)] text-[14px]">{item.brand}</div>
+                <p className="font-sans text-[13px] text-[#4a3338] mt-1">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() =>
+              openLead(
+                "Oi Amanda, vi seu portfólio e quero fechar uma parceria.",
+              )
+            }
+            className="inline-flex items-center gap-2 border-2 border-[var(--rosa)] text-[var(--rosa)] px-7 py-3.5 rounded-full text-sm font-medium hover:bg-[var(--rosa)] hover:text-white transition"
+          >
+            Quero ser a próxima
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------ FEEDBACKS ------------------------ */
+const FEEDBACKS = [
+  {
+    text: "Trabalhar com a Amanda foi um divisor de águas. O conteúdo dela traz autenticidade real, a campanha bateu meta em uma semana.",
+    name: "@belezanatural",
+    role: "Parceira de publi",
+  },
+  {
+    text: "Profissionalismo do briefing à entrega. As métricas superaram tudo que a gente já tinha feito com outras criadoras.",
+    name: "@modafemme",
+    role: "Parceira de publi",
+  },
+  {
+    text: "Ela entende de estratégia, não só de conteúdo. Isso fez toda diferença no resultado da nossa campanha de lançamento.",
+    name: "@cafedaamanda",
+    role: "Parceira de publi",
+  },
+  {
+    text: "Engajamento real, audiência que confia nela. Fechamos contrato anual depois da primeira publi, fala tudo né.",
+    name: "@skinglow",
+    role: "Parceira de publi",
+  },
+];
+
+function Feedbacks() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const total = FEEDBACKS.length;
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % total), 4000);
+    return () => clearInterval(id);
+  }, [paused, total]);
+
+  const go = (dir: number) => setIndex((i) => (i + dir + total) % total);
+
+  return (
+    <section className="bg-[#0D0709] py-20 lg:py-28 px-5">
+      <div className="max-w-5xl mx-auto">
+        <motion.div {...fadeUp} className="text-center mb-12">
+          <h2 className="font-display text-[clamp(2rem,3.4vw,2.8rem)] text-[var(--off-white)] leading-tight">
+            O que dizem sobre <span className="italic text-[var(--rosa)]">trabalhar comigo</span>
+          </h2>
+          <p className="mt-3 text-[#F4A0B5] font-sans text-[15px]">
+            Marcas reais. Resultados reais. Palavras delas.
+          </p>
+        </motion.div>
+
+        <div
+          className="relative"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div className="overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.5 }}
+                className="glass border border-[var(--rosa)]/40 rounded-[20px] p-7 lg:p-10"
+              >
+                <div className="text-[var(--rosa)] font-display text-6xl leading-none mb-3">“</div>
+                <p className="font-display italic text-[var(--off-white)] text-[16px] lg:text-[18px] leading-relaxed">
+                  {FEEDBACKS[index].text}
+                </p>
+                <div className="my-6 h-px bg-[var(--rosa)]/30" />
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[var(--rosa)] to-[var(--magenta)] border border-[var(--rosa)]/50" />
+                  <div className="flex-1">
+                    <div className="font-title text-[var(--rosa)] text-[14px]">
+                      {FEEDBACKS[index].name}
+                    </div>
+                    <div className="font-sans text-[12px] text-[#F4A0B5]">
+                      {FEEDBACKS[index].role}
+                    </div>
+                    <div className="flex gap-0.5 mt-1 text-[var(--rosa)]">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              aria-label="Anterior"
+              onClick={() => go(-1)}
+              className="w-10 h-10 rounded-full border border-[var(--rosa)]/50 text-[var(--rosa)] hover:bg-[var(--rosa)]/10 transition flex items-center justify-center"
+            >
+              ←
+            </button>
+            <div className="flex items-center gap-2">
+              {FEEDBACKS.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Slide ${i + 1}`}
+                  onClick={() => setIndex(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    i === index ? "w-6 bg-[var(--rosa)]" : "w-2 bg-[var(--rosa)]/30"
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              aria-label="Próximo"
+              onClick={() => go(1)}
+              className="w-10 h-10 rounded-full border border-[var(--rosa)]/50 text-[var(--rosa)] hover:bg-[var(--rosa)]/10 transition flex items-center justify-center"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() =>
+              openLead(
+                "Oi Amanda, vi os feedbacks e quero fechar uma parceria.",
+              )
+            }
+            className="inline-flex items-center gap-2 bg-[var(--rosa)] text-white px-7 py-3.5 rounded-full text-sm font-medium hover:bg-[var(--magenta)] transition shadow-rosa"
+          >
+            Quero esse resultado também
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Quiz() {
+
   const [step, setStep] = useState(0);
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
