@@ -14,7 +14,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-1 md:-mt-16 lg:-mt-24"
+              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-1"
             >
               Cansada sem explicação, com exames normais e sem respostas?
             </motion.h1>
