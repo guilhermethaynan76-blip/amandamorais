@@ -271,8 +271,9 @@ function Hero() {
             transition={{ duration: 0.7 }}
             className="order-1 lg:order-2 font-display text-[clamp(2rem,3vw,3.5rem)] leading-[1.15] max-w-[480px] text-[var(--off-white)]"
           >
-            Sua marca vai crescer. Ou vai crescer{" "}
-            <span className="italic text-gradient-rosa">com estratégia</span>.
+            Sua marca merece uma audiência que{" "}
+            <span className="italic text-gradient-rosa">compra</span>, não só que curte.
+
           </motion.h1>
 
           <motion.span
