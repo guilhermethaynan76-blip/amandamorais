@@ -81,6 +81,8 @@ function Page() {
       <Stats />
       <Brands />
       <Services />
+      <Portfolio />
+      <Feedbacks />
       <Quiz />
       <FinalCTA />
       <FAQ />
