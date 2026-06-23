@@ -4,7 +4,7 @@ import { WhatsAppButton } from '../WhatsAppButton';
 
 export const Hero = () => {
   return (
-    <section className="relative bg-fundo overflow-hidden" style={{ paddingTop: 80, paddingBottom: 60 }}>
+    <section className="relative bg-fundo overflow-hidden" style={{ paddingTop: 64, paddingBottom: 60 }}>
       <div className="container mx-auto px-4 w-full">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           
