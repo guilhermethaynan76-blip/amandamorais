@@ -23,7 +23,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start order-2"
+              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start order-1"
             >
               Médica Nutróloga • CRM-SP 267.644 • Online
             </motion.div>
