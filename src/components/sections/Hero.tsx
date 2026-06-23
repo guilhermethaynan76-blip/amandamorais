@@ -5,7 +5,7 @@ import { WhatsAppButton } from '../WhatsAppButton';
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center bg-fundo overflow-hidden" style={{ paddingTop: 80, paddingBottom: 60 }}>
-      <div className="container mx-auto px-4 w-full">
+      <div className="container mx-auto px-4 w-full" style={{ paddingTop: 0 }}>
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           
           {/* Column Text (Left on Desktop) */}
@@ -14,7 +14,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-1"
+              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-2"
             >
               Cansada sem explicação, com exames normais e sem respostas?
             </motion.h1>
@@ -23,7 +23,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start order-2"
+              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start order-1"
             >
               Médica Nutróloga • CRM-SP 267.644 • Online
             </motion.div>
