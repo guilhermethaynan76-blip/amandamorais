@@ -4,49 +4,49 @@ import { WhatsAppButton } from '../WhatsAppButton';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-start bg-fundo overflow-hidden" style={{ paddingTop: 96, paddingBottom: 60 }}>
-      <div className="container mx-auto px-4 w-full flex items-center min-h-[calc(100vh-96px)]">
+    <section className="relative bg-fundo overflow-hidden" style={{ paddingTop: 80, paddingBottom: 60 }}>
+      <div className="container mx-auto px-4 w-full">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           
           {/* Column Text (Left on Desktop) */}
-          <div className="w-full md:w-[55%] flex flex-col items-center md:items-start gap-6 md:gap-6 z-10 order-1">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px] order-2"
-            >
-              Cansada sem explicação, com exames normais e sem respostas?
-            </motion.h1>
+          <div className="w-full md:w-[55%] flex flex-col items-center md:items-start gap-4 z-10">
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start order-1"
+              className="px-4 py-1.5 rounded-full border border-acento-2 bg-acento-2/5 text-acento text-[11px] md:text-[12px] font-bold tracking-widest uppercase self-center md:self-start"
             >
               Médica Nutróloga • CRM-SP 267.644 • Online
             </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="cormorant italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primaria leading-[1.15] text-center md:text-left max-w-[480px]"
+            >
+              Cansada sem explicação, com exames normais e sem respostas?
+            </motion.h1>
             
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-full md:hidden order-3 my-2"
+              className="w-full md:hidden my-2"
             >
               <img 
                 src="https://res.cloudinary.com/dkwpz87nw/image/upload/v1781290048/ChatGPT_Image_12_de_jun._de_2026_15_46_04_1_ypod7r.png" 
                 alt="Dra. Rafaella de Paula"
                 className="w-full h-auto rounded-2xl shadow-xl border border-acento-2/20"
               />
-
             </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-[15px] md:text-lg text-muted-foreground leading-relaxed text-center md:text-left max-w-[460px] order-4"
+              className="text-[15px] md:text-lg text-muted-foreground leading-relaxed text-center md:text-left max-w-[460px]"
             >
               Eu cuido exatamente dessas pessoas. Daquelas que carregam sintomas que o mundo aprendeu a normalizar.
             </motion.p>
@@ -55,7 +55,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3 w-full justify-center md:justify-start order-5"
+              className="flex flex-col sm:flex-row gap-3 w-full justify-center md:justify-start"
             >
               <WhatsAppButton className="bg-acento text-fundo hover:bg-primaria shadow-xl w-full sm:w-auto">
                 Quero agendar minha consulta
@@ -72,7 +72,7 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="flex flex-wrap items-center justify-center md:justify-start gap-y-2 gap-x-6 text-[12px] text-muted-foreground order-6 text-center md:text-left"
+              className="flex flex-wrap items-center justify-center md:justify-start gap-y-2 gap-x-6 text-[12px] text-muted-foreground text-center md:text-left"
             >
               <span>✓ Lipedema • Menopausa • Obesidade</span>
               <span>✓ Medicina baseada em evidências</span>
@@ -81,7 +81,7 @@ export const Hero = () => {
           </div>
 
           {/* Column Photo (Desktop) */}
-          <div className="hidden md:block w-full md:w-[45%] h-full relative z-0 order-2">
+          <div className="hidden md:block w-full md:w-[45%] relative z-0">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -94,10 +94,10 @@ export const Hero = () => {
                 alt="Dra. Rafaella de Paula"
                 className="relative z-10 w-full h-auto object-cover rounded-3xl"
               />
-
               <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-acento/10 blur-3xl rounded-full -z-10" />
             </motion.div>
           </div>
+
         </div>
       </div>
     </section>
