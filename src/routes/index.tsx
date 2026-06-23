@@ -735,13 +735,11 @@ function quizResult(score: number) {
 }
 
 /* ------------------------ PORTFOLIO ------------------------ */
-const PORTFOLIO_ITEMS = [
-  { brand: "@belezanatural", desc: "Publi no feed • Reels • Stories" },
-  { brand: "@modafemme", desc: "Reels • Stories" },
-  { brand: "@cafedaamanda", desc: "Publi no feed • Stories" },
-  { brand: "@fitlifebr", desc: "Reels • Carrossel" },
-  { brand: "@maelinda", desc: "Publi no feed • Reels" },
-  { brand: "@skinglow", desc: "Stories • Reels" },
+const PORTFOLIO_VIDEOS = [
+  "/videos/trabalho-1.mp4",
+  "/videos/trabalho-2.mp4",
+  "/videos/trabalho-3.mp4",
+  "/videos/trabalho-4.mp4",
 ];
 
 function Portfolio() {
@@ -750,42 +748,33 @@ function Portfolio() {
       <div className="max-w-6xl mx-auto">
         <motion.div {...fadeUp} className="text-center mb-12">
           <h2 className="font-display text-[clamp(2rem,3.4vw,2.8rem)] text-[var(--dark)] leading-tight">
-            Marcas que já <span className="italic text-[var(--rosa)]">brilharam aqui</span>
+            Meus <span className="italic text-[var(--rosa)]">trabalhos</span>
           </h2>
           <p className="mt-3 text-[#A03055] font-sans text-[15px]">
             Conteúdo real, resultado real.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PORTFOLIO_ITEMS.map((item, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {PORTFOLIO_VIDEOS.map((src, i) => (
             <motion.div
-              key={item.brand}
+              key={src}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="bg-white rounded-[16px] overflow-hidden shadow-[0_8px_24px_-8px_rgba(232,86,122,0.25)] hover:shadow-[0_14px_32px_-8px_rgba(232,86,122,0.35)] transition-shadow"
+              className="bg-white rounded-[16px] overflow-hidden shadow-[0_8px_24px_-8px_rgba(232,86,122,0.25)] hover:shadow-[0_14px_32px_-8px_rgba(232,86,122,0.35)] transition-shadow aspect-[9/16]"
             >
-              <div
-                className="h-[200px] w-full flex flex-col items-center justify-center gap-2"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #FDE0E8 0%, #F8C8D6 100%)",
-                }}
-              >
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#E8567A" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="9" cy="9" r="2" />
-                  <path d="m21 15-5-5L5 21" />
-                </svg>
-                <span className="font-title text-[12px] text-[#A07585]">[ foto do trabalho ]</span>
-              </div>
-              <div className="p-4">
-                <div className="font-title text-[var(--rosa)] text-[14px]">{item.brand}</div>
-                <p className="font-sans text-[13px] text-[#4a3338] mt-1">{item.desc}</p>
-              </div>
+              <video
+                src={src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           ))}
         </div>
@@ -794,7 +783,7 @@ function Portfolio() {
           <button
             onClick={() =>
               openLead(
-                "Oi Amanda, vi seu portfólio e quero fechar uma parceria.",
+                "Oi Amanda, vi seus trabalhos e quero fechar uma parceria.",
               )
             }
             className="inline-flex items-center gap-2 border-2 border-[var(--rosa)] text-[var(--rosa)] px-7 py-3.5 rounded-full text-sm font-medium hover:bg-[var(--rosa)] hover:text-white transition"
@@ -806,6 +795,7 @@ function Portfolio() {
     </section>
   );
 }
+
 
 /* ------------------------ FEEDBACKS ------------------------ */
 const FEEDBACKS = [
