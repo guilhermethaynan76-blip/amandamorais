@@ -35,71 +35,89 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Camila Strieder palette */
-  --color-fundo: var(--fundo);
-  --color-fundo-2: var(--fundo-2);
-  --color-fundo-escuro: var(--fundo-escuro);
-  --color-primaria: var(--primaria);
-  --color-acento: var(--acento);
-  --color-acento-2: var(--acento-2);
+  /* Amanda Morais palette */
+  --color-rosa: var(--rosa);
+  --color-rosa-claro: var(--rosa-claro);
+  --color-rosa-po: var(--rosa-po);
+  --color-dark: var(--dark);
+  --color-off-white: var(--off-white);
+  --color-magenta: var(--magenta);
 
-  --font-display: 'DM Serif Display', serif;
-  --font-title: 'Montserrat', sans-serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
 
-  --background: oklch(0.985 0.005 250);
-  --foreground: oklch(0.22 0.04 260);
-  --card: oklch(0.96 0.01 250);
-  --card-foreground: oklch(0.22 0.04 260);
-  --popover: oklch(0.985 0.005 250);
-  --popover-foreground: oklch(0.22 0.04 260);
-  --primary: oklch(0.30 0.08 265);
-  --primary-foreground: oklch(0.985 0.005 250);
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.22 0.04 260);
-  --muted: oklch(0.22 0.04 260 / 0.5);
-  --muted-foreground: oklch(0.22 0.04 260 / 0.7);
-  --accent: oklch(0.48 0.13 265);
-  --accent-foreground: oklch(0.985 0.005 250);
+  --background: oklch(0.99 0.005 350);
+  --foreground: oklch(0.15 0.02 350);
+  --card: oklch(0.98 0.01 350);
+  --card-foreground: oklch(0.15 0.02 350);
+  --popover: oklch(0.99 0.005 350);
+  --popover-foreground: oklch(0.15 0.02 350);
+  --primary: oklch(0.62 0.18 5);
+  --primary-foreground: oklch(0.99 0.005 350);
+  --secondary: oklch(0.97 0.02 350);
+  --secondary-foreground: oklch(0.15 0.02 350);
+  --muted: oklch(0.15 0.02 350 / 0.5);
+  --muted-foreground: oklch(0.15 0.02 350 / 0.7);
+  --accent: oklch(0.62 0.18 5);
+  --accent-foreground: oklch(0.99 0.005 350);
   --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.985 0.005 250);
-  --border: oklch(0.48 0.13 265 / 0.2);
-  --input: oklch(0.48 0.13 265 / 0.2);
-  --ring: oklch(0.48 0.13 265);
+  --destructive-foreground: oklch(0.99 0.005 350);
+  --border: oklch(0.62 0.18 5 / 0.2);
+  --input: oklch(0.62 0.18 5 / 0.2);
+  --ring: oklch(0.62 0.18 5);
 
-  /* Camila Strieder named tokens */
-  --fundo: #F7F9FC;
-  --fundo-2: #EDF0F7;
-  --fundo-escuro: #0D1526;
-  --primaria: #152040;
-  --acento: #2B52A0;       /* azul cobalto */
-  --acento-2: #C4A882;     /* dourado */
+  /* Amanda Morais named tokens */
+  --rosa: #E8567A;
+  --rosa-claro: #F4A0B5;
+  --rosa-po: #FDF0F4;
+  --dark: #0D0709;
+  --off-white: #FAF7F8;
+  --magenta: #A03055;
 }
 
 @layer base {
   * { border-color: var(--color-border); }
   body {
-    background-color: var(--fundo);
-    color: var(--primaria);
+    background-color: var(--dark);
+    color: var(--off-white);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; }
   .font-display { font-family: var(--font-display); }
   .font-title { font-family: var(--font-title); }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  @keyframes pulseSoft {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(43,82,160,0.55); }
-    50% { box-shadow: 0 0 0 18px rgba(43,82,160,0); }
+  .glass {
+    background: rgba(232, 86, 122, 0.08);
+    backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(232, 86, 122, 0.28);
   }
-  .pulse-acento { animation: pulseSoft 2.2s ease-in-out infinite; }
+  .glass-light {
+    background: rgba(253, 240, 244, 0.6);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(232, 86, 122, 0.3);
+  }
+  .text-gradient-rosa {
+    background: linear-gradient(135deg, #E8567A 0%, #F4A0B5 50%, #E8567A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .shadow-rosa { box-shadow: 0 12px 40px -10px rgba(232, 86, 122, 0.45); }
+  .shadow-rosa-lg { box-shadow: 0 22px 60px -12px rgba(232, 86, 122, 0.55); }
+  @keyframes pulseRosa {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+    50% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  }
+  .pulse-wa { animation: pulseRosa 2.2s ease-in-out infinite; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
 }
