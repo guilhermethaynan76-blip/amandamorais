@@ -299,8 +299,9 @@ function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="order-4 text-[15px] leading-[1.6] max-w-[460px] text-[var(--rosa-claro)]"
           >
-            Influenciadora de lifestyle e autoestima com 4 anos de mercado e experiência real em
-            agência de marketing. Conteúdo autêntico que conecta e vende.
+            4 anos conectando marcas com pessoas reais. Estratégia, autenticidade e resultado em
+            cada post.
+
           </motion.p>
 
           <motion.div
