@@ -4,9 +4,9 @@ import { WhatsAppButton } from '../WhatsAppButton';
 
 export const Hero = () => {
   return (
-    <section className="relative md:min-h-0 min-h-screen pt-24 md:pt-4 pb-16 md:pb-8 flex items-center bg-fundo overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 md:-mt-32 lg:-mt-40">
+    <section className="relative min-h-screen flex items-center bg-fundo overflow-hidden" style={{ paddingTop: 80, paddingBottom: 60 }}>
+      <div className="container mx-auto px-4 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           
           {/* Column Text (Left on Desktop) */}
           <div className="w-full md:w-[55%] flex flex-col items-center md:items-start gap-6 md:gap-6 z-10 order-1">
